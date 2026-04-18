@@ -1,0 +1,24 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="320dp"
+    android:height="260dp"
+    android:viewportWidth="320"
+    android:viewportHeight="260">
+    <path
+        android:pathData="M0,0h320v260h-320z">
+        <aapt:attr xmlns:aapt="http://schemas.android.com/aapt" name="android:fillColor">
+            <gradient
+                android:startColor="#E5D4CD"
+                android:endColor="#8F8078"
+                android:angle="270" />
+        </aapt:attr>
+    </path>
+    <!-- Storm clouds -->
+    <path
+        android:fillColor="#5A554F"
+        android:fillAlpha="0.55"
+        android:pathData="M0,80 C 60,50 120,70 200,60 S 280,80 320,70 L 320,0 L 0,0 Z" />
+    <path
+        android:fillColor="#3C3A36"
+        android:fillAlpha="0.4"
+        android:pathData="M0,130 C 60,110 150,130 220,115 S 300,130 320,125 L 320,60 L 0,60 Z" />
+</vector>

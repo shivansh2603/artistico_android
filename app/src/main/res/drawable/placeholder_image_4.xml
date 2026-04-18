@@ -1,0 +1,24 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="320dp"
+    android:height="260dp"
+    android:viewportWidth="320"
+    android:viewportHeight="260">
+    <path
+        android:pathData="M0,0h320v260h-320z">
+        <aapt:attr xmlns:aapt="http://schemas.android.com/aapt" name="android:fillColor">
+            <gradient
+                android:startColor="#C9D9E7"
+                android:endColor="#4B5D74"
+                android:angle="135" />
+        </aapt:attr>
+    </path>
+    <!-- Mountain silhouettes -->
+    <path
+        android:fillColor="#1F2935"
+        android:fillAlpha="0.75"
+        android:pathData="M0,200 L 80,120 L 150,180 L 220,100 L 320,190 L 320,260 L 0,260 Z" />
+    <path
+        android:fillColor="#0F1821"
+        android:fillAlpha="0.9"
+        android:pathData="M0,230 L 60,190 L 140,220 L 220,180 L 320,230 L 320,260 L 0,260 Z" />
+</vector>

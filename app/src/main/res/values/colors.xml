@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Brand -->
+    <color name="brand_maroon">#5D1A33</color>
+    <color name="brand_maroon_dark">#3F0F21</color>
+    <color name="brand_maroon_soft">#7A2544</color>
+    <color name="brand_pink_bg">#FADCE2</color>
+    <color name="brand_pink_bg_soft">#FDEBEF</color>
+    <color name="brand_pink_surface">#FFF5F7</color>
+    <color name="brand_rose_chip">#F5D0D6</color>
+
+    <!-- Neutrals -->
+    <color name="surface_white">#FFFFFF</color>
+    <color name="surface_dim">#F2E4E7</color>
+    <color name="divider">#EAD6DA</color>
+    <color name="text_primary">#1B0B10</color>
+    <color name="text_secondary">#6E5A5F</color>
+    <color name="text_tertiary">#9B8B8E</color>
+    <color name="icon_muted">#6E5A5F</color>
+
+    <!-- Functional -->
+    <color name="like_red">#6B1E35</color>
+    <color name="error">#B00020</color>
+    <color name="success">#2E7D32</color>
+
+    <!-- Overlays -->
+    <color name="scrim_dark">#66000000</color>
+    <color name="scrim_light">#80FFFFFF</color>
+    <color name="card_overlay_bottom">#B3000000</color>
+
+    <!-- System -->
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="transparent">#00000000</color>
+</resources>

@@ -1,0 +1,37 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="320dp"
+    android:height="260dp"
+    android:viewportWidth="320"
+    android:viewportHeight="260">
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M0,0h320v260h-320z" />
+    <!-- Soft line-drawing of hills/houses, echoing screenshot 1 -->
+    <path
+        android:strokeColor="#1B0B10"
+        android:strokeWidth="2"
+        android:fillColor="#00000000"
+        android:pathData="M10,170 C 50,130 90,145 130,150 S 210,140 260,120 L 310,115" />
+    <path
+        android:strokeColor="#1B0B10"
+        android:strokeWidth="2"
+        android:fillColor="#00000000"
+        android:pathData="M20,200 C 70,180 110,195 160,190 S 250,180 300,170" />
+    <!-- Houses -->
+    <path
+        android:strokeColor="#1B0B10"
+        android:strokeWidth="2"
+        android:fillColor="#00000000"
+        android:pathData="M200,100 l15,-20 l15,20 l0,25 l-30,0 z" />
+    <path
+        android:strokeColor="#1B0B10"
+        android:strokeWidth="2"
+        android:fillColor="#00000000"
+        android:pathData="M240,105 l12,-16 l12,16 l0,22 l-24,0 z" />
+    <!-- Tree bushes -->
+    <path
+        android:strokeColor="#1B0B10"
+        android:strokeWidth="2"
+        android:fillColor="#00000000"
+        android:pathData="M60,155 a 14,12 0 1 1 28,0 M75,148 a 10,10 0 1 1 20,0" />
+</vector>

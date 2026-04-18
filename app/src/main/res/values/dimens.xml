@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Spacing scale (4dp grid) -->
+    <dimen name="space_xxs">4dp</dimen>
+    <dimen name="space_xs">8dp</dimen>
+    <dimen name="space_sm">12dp</dimen>
+    <dimen name="space_md">16dp</dimen>
+    <dimen name="space_lg">20dp</dimen>
+    <dimen name="space_xl">24dp</dimen>
+    <dimen name="space_2xl">32dp</dimen>
+    <dimen name="space_3xl">40dp</dimen>
+
+    <!-- Radius -->
+    <dimen name="radius_sm">8dp</dimen>
+    <dimen name="radius_md">16dp</dimen>
+    <dimen name="radius_lg">24dp</dimen>
+    <dimen name="radius_pill">32dp</dimen>
+    <dimen name="radius_card">20dp</dimen>
+
+    <!-- Sizes -->
+    <dimen name="avatar_sm">32dp</dimen>
+    <dimen name="avatar_md">44dp</dimen>
+    <dimen name="avatar_lg">56dp</dimen>
+    <dimen name="avatar_xl">120dp</dimen>
+
+    <dimen name="icon_sm">16dp</dimen>
+    <dimen name="icon_md">20dp</dimen>
+    <dimen name="icon_lg">24dp</dimen>
+    <dimen name="icon_xl">28dp</dimen>
+
+    <dimen name="touch_target">48dp</dimen>
+
+    <dimen name="bottom_bar_height">72dp</dimen>
+    <dimen name="bottom_bar_margin">12dp</dimen>
+
+    <dimen name="card_elevation">2dp</dimen>
+    <dimen name="card_elevation_raised">6dp</dimen>
+
+    <dimen name="explore_card_height">260dp</dimen>
+    <dimen name="explore_card_peek">24dp</dimen>
+
+    <dimen name="countdown_box">72dp</dimen>
+</resources>

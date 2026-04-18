@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/brand_pink_bg">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:paddingBottom="120dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Top bar with overflow only -->
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:paddingHorizontal="16dp">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_overflow"
+                    style="@style/Widget.Artistico.IconButton"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="end|center_vertical"
+                    android:contentDescription="@string/cd_more"
+                    android:insetTop="0dp"
+                    android:insetBottom="0dp"
+                    app:cornerRadius="20dp"
+                    app:icon="@drawable/ic_more_horiz"
+                    app:iconGravity="textStart"
+                    app:iconPadding="0dp"
+                    app:iconTint="@color/text_primary" />
+            </FrameLayout>
+
+            <!-- Title -->
+            <TextView
+                style="@style/Text.Screen.Title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="20dp"
+                android:text="@string/profile_title" />
+
+            <!-- Avatar -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="@dimen/avatar_xl"
+                android:layout_height="@dimen/avatar_xl"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="16dp"
+                app:cardCornerRadius="60dp"
+                app:cardElevation="0dp"
+                app:strokeWidth="0dp">
+
+                <ImageView
+                    android:id="@+id/img_avatar"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:contentDescription="@null"
+                    android:scaleType="centerCrop"
+                    tools:src="@drawable/placeholder_avatar" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Name + role badge -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="12dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/txt_name"
+                    style="@style/TextAppearance.Artistico.Headline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/brand_maroon"
+                    android:textSize="26sp"
+                    tools:text="Prateek Rai" />
+
+                <TextView
+                    android:id="@+id/chip_role"
+                    style="@style/Text.Chip.Role"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:background="@drawable/bg_role_chip"
+                    tools:text="Dev" />
+            </LinearLayout>
+
+            <!-- Stats row -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="16dp"
+                android:orientation="horizontal">
+
+                <include
+                    android:id="@+id/stat_followers"
+                    layout="@layout/view_profile_stat" />
+
+                <Space
+                    android:layout_width="32dp"
+                    android:layout_height="0dp" />
+
+                <include
+                    android:id="@+id/stat_following"
+                    layout="@layout/view_profile_stat" />
+
+                <Space
+                    android:layout_width="32dp"
+                    android:layout_height="0dp" />
+
+                <include
+                    android:id="@+id/stat_posts"
+                    layout="@layout/view_profile_stat" />
+            </LinearLayout>
+
+            <!-- Bio card -->
+            <TextView
+                android:id="@+id/txt_bio"
+                style="@style/TextAppearance.Artistico.Body"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/bg_bio_card"
+                android:gravity="center"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="16dp"
+                android:textColor="@color/brand_maroon"
+                tools:text="Head of R&amp;D." />
+
+            <!-- Tab selector -->
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tab_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@android:color/transparent"
+                app:tabBackground="@android:color/transparent"
+                app:tabIconTint="@color/bottom_nav_item"
+                app:tabIndicatorColor="@color/brand_maroon"
+                app:tabIndicatorFullWidth="false"
+                app:tabIndicatorHeight="2dp"
+                app:tabMode="fixed"
+                app:tabRippleColor="@color/brand_rose_chip" />
+
+            <!-- Content grid -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_grid"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:nestedScrollingEnabled="false"
+                android:overScrollMode="never"
+                android:paddingHorizontal="4dp"
+                tools:itemCount="3"
+                tools:listitem="@layout/item_profile_post" />
+
+            <TextView
+                android:id="@+id/txt_tab_empty"
+                style="@style/Text.Empty.Prompt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingVertical="48dp"
+                android:text="Nothing here yet"
+                android:visibility="gone" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_new_post"
+        style="@style/Widget.Artistico.Fab"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_gravity="bottom|end"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="96dp"
+        android:contentDescription="@string/cd_new_post"
+        app:elevation="8dp"
+        app:srcCompat="@drawable/ic_plus" />
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

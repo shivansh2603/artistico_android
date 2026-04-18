@@ -1,0 +1,24 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="320dp"
+    android:height="260dp"
+    android:viewportWidth="320"
+    android:viewportHeight="260">
+    <path
+        android:pathData="M0,0h320v260h-320z">
+        <aapt:attr xmlns:aapt="http://schemas.android.com/aapt" name="android:fillColor">
+            <gradient
+                android:startColor="#8BA88E"
+                android:endColor="#3E5948"
+                android:angle="135" />
+        </aapt:attr>
+    </path>
+    <!-- Stylised leaves silhouette -->
+    <path
+        android:fillColor="#1C2A22"
+        android:fillAlpha="0.55"
+        android:pathData="M0,170 C 60,140 100,175 160,165 S 260,150 320,170 L 320,260 L 0,260 Z" />
+    <path
+        android:fillColor="#223229"
+        android:fillAlpha="0.7"
+        android:pathData="M0,210 C 60,200 120,215 200,205 S 280,200 320,210 L 320,260 L 0,260 Z" />
+</vector>

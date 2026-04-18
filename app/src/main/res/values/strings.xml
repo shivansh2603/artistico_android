@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Artistico</string>
+
+    <!-- Bottom nav -->
+    <string name="nav_explore">Explore</string>
+    <string name="nav_connect">Connect</string>
+    <string name="nav_challenges">Challenges</string>
+    <string name="nav_profile">Profile</string>
+    <string name="nav_search">Search</string>
+
+    <!-- Explore -->
+    <string name="explore_title">Explore</string>
+    <string name="section_my_followings">My Followings</string>
+    <string name="section_still_life">Still Life</string>
+    <string name="section_trending">Trending</string>
+    <string name="cd_like">Like post</string>
+    <string name="cd_unlike">Unlike post</string>
+    <string name="cd_avatar">Profile picture of %1$s</string>
+    <string name="cd_more">More options</string>
+
+    <!-- Post Details -->
+    <string name="post_details_title">Post Details</string>
+    <string name="description">Description</string>
+    <string name="comments">Comments</string>
+    <string name="comments_empty">Be the first one to comment on %1$s\'s post</string>
+    <string name="write_a_comment">Write a comment…</string>
+    <string name="cd_send_comment">Send comment</string>
+    <string name="cd_back">Back</string>
+
+    <!-- Connect -->
+    <string name="connect_title">Connect</string>
+    <string name="search_community_hint">Search by community name or tag</string>
+    <string name="connect_empty">Let\'s connect, artist!</string>
+    <string name="tab_communities">Communities</string>
+    <string name="tab_chats">Chats</string>
+    <string name="cd_new_community">Create new community</string>
+
+    <!-- Challenges -->
+    <string name="challenges_title">Challenges</string>
+    <string name="starts_on">Starts- %1$s</string>
+    <string name="ends_on">Ends- %1$s</string>
+    <string name="challenge_ends_in">Challenge ends in</string>
+    <string name="add_submission">Add Submission</string>
+    <string name="previous_weeks">Previous Weeks</string>
+    <string name="see_all">See all</string>
+    <string name="days">Days</string>
+    <string name="hrs">Hrs</string>
+    <string name="mins">Mins</string>
+    <string name="sec">Sec</string>
+    <string name="cd_challenge_info">Challenge rules</string>
+
+    <!-- Profile -->
+    <string name="profile_title">Profile</string>
+    <string name="role_dev">Dev</string>
+    <string name="role_user">User</string>
+    <string name="stat_followers">Followers</string>
+    <string name="stat_following">Following</string>
+    <string name="stat_posts">Posts</string>
+    <string name="tab_posts">Posts</string>
+    <string name="tab_bookmarks">Bookmarks</string>
+    <string name="tab_pinned">Pinned</string>
+    <string name="tab_trophies">Trophies</string>
+    <string name="cd_new_post">Create new post</string>
+
+    <!-- Generic -->
+    <string name="retry">Retry</string>
+    <string name="something_went_wrong">Something went wrong</string>
+    <string name="loading">Loading…</string>
+    <string name="time_ago_months">%1$dmo ago</string>
+    <string name="time_ago_days">%1$dd ago</string>
+    <string name="time_ago_hours">%1$dh ago</string>
+    <string name="time_ago_minutes">%1$dm ago</string>
+    <string name="time_just_now">Just now</string>
+</resources>

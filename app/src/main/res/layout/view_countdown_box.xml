@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/countdown_box"
+        android:background="@drawable/bg_countdown_box">
+
+        <TextView
+            android:id="@+id/txt_value"
+            style="@style/Text.Countdown.Number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            tools:text="04" />
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/txt_unit"
+        style="@style/Text.Countdown.Unit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:gravity="center"
+        tools:text="Days" />
+</LinearLayout>
