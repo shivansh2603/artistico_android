@@ -1,0 +1,98 @@
+Index: app/build.gradle.kts
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>plugins {\r\n    alias(libs.plugins.android.application)\r\n    alias(libs.plugins.kotlin.android)\r\n    alias(libs.plugins.kotlin.parcelize)\r\n    alias(libs.plugins.ksp)\r\n    alias(libs.plugins.hilt)\r\n    alias(libs.plugins.androidx.navigation.safeargs)\r\n}\r\n\r\nandroid {\r\n    namespace = \"com.example.artistico_android\"\r\n    compileSdk = 35\r\n\r\n    defaultConfig {\r\n        applicationId = \"com.example.artistico_android\"\r\n        minSdk = 26\r\n        targetSdk = 35\r\n        versionCode = 1\r\n        versionName = \"1.0\"\r\n\r\n        testInstrumentationRunner = \"androidx.test.runner.AndroidJUnitRunner\"\r\n        vectorDrawables.useSupportLibrary = true\r\n    }\r\n\r\n    buildTypes {\r\n        debug {\r\n            isMinifyEnabled = false\r\n            applicationIdSuffix = \".debug\"\r\n            versionNameSuffix = \"-debug\"\r\n        }\r\n        release {\r\n            isMinifyEnabled = true\r\n            isShrinkResources = true\r\n            proguardFiles(\r\n                getDefaultProguardFile(\"proguard-android-optimize.txt\"),\r\n                \"proguard-rules.pro\"\r\n            )\r\n        }\r\n    }\r\n\r\n    compileOptions {\r\n        sourceCompatibility = JavaVersion.VERSION_17\r\n        targetCompatibility = JavaVersion.VERSION_17\r\n    }\r\n\r\n    kotlinOptions {\r\n        jvmTarget = \"17\"\r\n    }\r\n\r\n    buildFeatures {\r\n        viewBinding = true\r\n        buildConfig = true\r\n    }\r\n\r\n    packaging {\r\n        resources {\r\n            excludes += setOf(\r\n                \"/META-INF/{AL2.0,LGPL2.1}\",\r\n                \"META-INF/LICENSE*\",\r\n                \"META-INF/NOTICE*\"\r\n            )\r\n        }\r\n    }\r\n}\r\n\r\ndependencies {\r\n    // Core AndroidX\r\n    implementation(libs.androidx.core.ktx)\r\n    implementation(libs.androidx.appcompat)\r\n    implementation(libs.androidx.activity.ktx)\r\n    implementation(libs.androidx.fragment.ktx)\r\n\r\n    // Material & layout\r\n    implementation(libs.material)\r\n    implementation(libs.androidx.constraintlayout)\r\n    implementation(libs.androidx.coordinatorlayout)\r\n    implementation(libs.androidx.swiperefreshlayout)\r\n    implementation(libs.androidx.recyclerview)\r\n    implementation(libs.androidx.viewpager2)\r\n\r\n    // Lifecycle\r\n    implementation(libs.androidx.lifecycle.viewmodel.ktx)\r\n    implementation(libs.androidx.lifecycle.runtime.ktx)\r\n    implementation(libs.androidx.lifecycle.common)\r\n\r\n    // Navigation\r\n    implementation(libs.androidx.navigation.fragment.ktx)\r\n    implementation(libs.androidx.navigation.ui.ktx)\r\n\r\n    // Paging\r\n    implementation(libs.androidx.paging.runtime.ktx)\r\n\r\n    // DataStore (for future session)\r\n    implementation(libs.androidx.datastore.preferences)\r\n\r\n    // Coroutines\r\n    implementation(libs.kotlinx.coroutines.android)\r\n\r\n    // Images\r\n    implementation(libs.coil)\r\n\r\n    // DI\r\n    implementation(libs.hilt.android)\r\n    ksp(libs.hilt.compiler)\r\n\r\n    // Logging\r\n    implementation(libs.timber)\r\n\r\n    // Unit test\r\n    testImplementation(libs.junit)\r\n    testImplementation(libs.mockk)\r\n    testImplementation(libs.turbine)\r\n    testImplementation(libs.truth)\r\n    testImplementation(libs.kotlinx.coroutines.test)\r\n\r\n    // Android test\r\n    androidTestImplementation(libs.androidx.junit)\r\n    androidTestImplementation(libs.androidx.espresso.core)\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/build.gradle.kts b/app/build.gradle.kts
+--- a/app/build.gradle.kts	(revision c44a76a08c89cc7e33ce3763835c55ad43b9ff56)
++++ b/app/build.gradle.kts	(date 1776609099258)
+@@ -5,6 +5,7 @@
+     alias(libs.plugins.ksp)
+     alias(libs.plugins.hilt)
+     alias(libs.plugins.androidx.navigation.safeargs)
++    id("com.google.gms.google-services")
+ }
+ 
+ android {
+@@ -25,7 +26,6 @@
+     buildTypes {
+         debug {
+             isMinifyEnabled = false
+-            applicationIdSuffix = ".debug"
+             versionNameSuffix = "-debug"
+         }
+         release {
+@@ -116,4 +116,8 @@
+     // Android test
+     androidTestImplementation(libs.androidx.junit)
+     androidTestImplementation(libs.androidx.espresso.core)
++
++    //Firebase
++    implementation(platform("com.google.firebase:firebase-bom:34.12.0"))
++    implementation("com.google.firebase:firebase-analytics")
+ }
+Index: gradle/libs.versions.toml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>[versions]\r\nagp = \"8.7.3\"\r\nkotlin = \"2.0.21\"\r\nksp = \"2.0.21-1.0.28\"\r\nhilt = \"2.52\"\r\n\r\ncoreKtx = \"1.15.0\"\r\nappcompat = \"1.7.0\"\r\nmaterial = \"1.12.0\"\r\nconstraintLayout = \"2.2.0\"\r\ncoordinatorLayout = \"1.2.0\"\r\nswipeRefresh = \"1.1.0\"\r\nrecyclerview = \"1.3.2\"\r\nviewPager2 = \"1.1.0\"\r\nfragment = \"1.8.5\"\r\nactivity = \"1.9.3\"\r\nlifecycle = \"2.8.7\"\r\nnavigation = \"2.8.4\"\r\npaging = \"3.3.4\"\r\ndatastore = \"1.1.1\"\r\n\r\ncoroutines = \"1.9.0\"\r\ncoil = \"2.7.0\"\r\ntimber = \"5.0.1\"\r\n\r\njunit = \"4.13.2\"\r\nandroidxJunit = \"1.2.1\"\r\nespresso = \"3.6.1\"\r\nmockk = \"1.13.13\"\r\nturbine = \"1.2.0\"\r\ntruth = \"1.4.4\"\r\ncoroutinesTest = \"1.9.0\"\r\n\r\n[libraries]\r\nandroidx-core-ktx = { group = \"androidx.core\", name = \"core-ktx\", version.ref = \"coreKtx\" }\r\nandroidx-appcompat = { group = \"androidx.appcompat\", name = \"appcompat\", version.ref = \"appcompat\" }\r\nmaterial = { group = \"com.google.android.material\", name = \"material\", version.ref = \"material\" }\r\nandroidx-constraintlayout = { group = \"androidx.constraintlayout\", name = \"constraintlayout\", version.ref = \"constraintLayout\" }\r\nandroidx-coordinatorlayout = { group = \"androidx.coordinatorlayout\", name = \"coordinatorlayout\", version.ref = \"coordinatorLayout\" }\r\nandroidx-swiperefreshlayout = { group = \"androidx.swiperefreshlayout\", name = \"swiperefreshlayout\", version.ref = \"swipeRefresh\" }\r\nandroidx-recyclerview = { group = \"androidx.recyclerview\", name = \"recyclerview\", version.ref = \"recyclerview\" }\r\nandroidx-viewpager2 = { group = \"androidx.viewpager2\", name = \"viewpager2\", version.ref = \"viewPager2\" }\r\nandroidx-fragment-ktx = { group = \"androidx.fragment\", name = \"fragment-ktx\", version.ref = \"fragment\" }\r\nandroidx-activity-ktx = { group = \"androidx.activity\", name = \"activity-ktx\", version.ref = \"activity\" }\r\n\r\nandroidx-lifecycle-viewmodel-ktx = { group = \"androidx.lifecycle\", name = \"lifecycle-viewmodel-ktx\", version.ref = \"lifecycle\" }\r\nandroidx-lifecycle-runtime-ktx = { group = \"androidx.lifecycle\", name = \"lifecycle-runtime-ktx\", version.ref = \"lifecycle\" }\r\nandroidx-lifecycle-common = { group = \"androidx.lifecycle\", name = \"lifecycle-common-java8\", version.ref = \"lifecycle\" }\r\n\r\nandroidx-navigation-fragment-ktx = { group = \"androidx.navigation\", name = \"navigation-fragment-ktx\", version.ref = \"navigation\" }\r\nandroidx-navigation-ui-ktx = { group = \"androidx.navigation\", name = \"navigation-ui-ktx\", version.ref = \"navigation\" }\r\n\r\nandroidx-paging-runtime-ktx = { group = \"androidx.paging\", name = \"paging-runtime-ktx\", version.ref = \"paging\" }\r\nandroidx-datastore-preferences = { group = \"androidx.datastore\", name = \"datastore-preferences\", version.ref = \"datastore\" }\r\n\r\nkotlinx-coroutines-android = { group = \"org.jetbrains.kotlinx\", name = \"kotlinx-coroutines-android\", version.ref = \"coroutines\" }\r\n\r\ncoil = { group = \"io.coil-kt\", name = \"coil\", version.ref = \"coil\" }\r\n\r\nhilt-android = { group = \"com.google.dagger\", name = \"hilt-android\", version.ref = \"hilt\" }\r\nhilt-compiler = { group = \"com.google.dagger\", name = \"hilt-android-compiler\", version.ref = \"hilt\" }\r\n\r\ntimber = { group = \"com.jakewharton.timber\", name = \"timber\", version.ref = \"timber\" }\r\n\r\njunit = { group = \"junit\", name = \"junit\", version.ref = \"junit\" }\r\nandroidx-junit = { group = \"androidx.test.ext\", name = \"junit\", version.ref = \"androidxJunit\" }\r\nandroidx-espresso-core = { group = \"androidx.test.espresso\", name = \"espresso-core\", version.ref = \"espresso\" }\r\nmockk = { group = \"io.mockk\", name = \"mockk\", version.ref = \"mockk\" }\r\nturbine = { group = \"app.cash.turbine\", name = \"turbine\", version.ref = \"turbine\" }\r\ntruth = { group = \"com.google.truth\", name = \"truth\", version.ref = \"truth\" }\r\nkotlinx-coroutines-test = { group = \"org.jetbrains.kotlinx\", name = \"kotlinx-coroutines-test\", version.ref = \"coroutinesTest\" }\r\n\r\n[plugins]\r\nandroid-application = { id = \"com.android.application\", version.ref = \"agp\" }\r\nkotlin-android = { id = \"org.jetbrains.kotlin.android\", version.ref = \"kotlin\" }\r\nkotlin-parcelize = { id = \"org.jetbrains.kotlin.plugin.parcelize\", version.ref = \"kotlin\" }\r\nksp = { id = \"com.google.devtools.ksp\", version.ref = \"ksp\" }\r\nhilt = { id = \"com.google.dagger.hilt.android\", version.ref = \"hilt\" }\r\nandroidx-navigation-safeargs = { id = \"androidx.navigation.safeargs.kotlin\", version.ref = \"navigation\" }\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/gradle/libs.versions.toml b/gradle/libs.versions.toml
+--- a/gradle/libs.versions.toml	(revision c44a76a08c89cc7e33ce3763835c55ad43b9ff56)
++++ b/gradle/libs.versions.toml	(date 1776609350279)
+@@ -1,8 +1,8 @@
+ [versions]
+ agp = "8.7.3"
+-kotlin = "2.0.21"
+-ksp = "2.0.21-1.0.28"
+-hilt = "2.52"
++kotlin = "2.2.21"
++ksp = "2.2.21-2.0.5"
++hilt = "2.57.2"
+ 
+ coreKtx = "1.15.0"
+ appcompat = "1.7.0"
+Index: .idea/appInsightsSettings.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AppInsightsSettings\">\r\n    <option name=\"tabSettings\">\r\n      <map>\r\n        <entry key=\"Firebase Crashlytics\">\r\n          <value>\r\n            <InsightsFilterSettings>\r\n              <option name=\"connection\">\r\n                <ConnectionSetting>\r\n                  <option name=\"appId\" value=\"PLACEHOLDER\" />\r\n                  <option name=\"mobileSdkAppId\" value=\"\" />\r\n                  <option name=\"projectId\" value=\"\" />\r\n                  <option name=\"projectNumber\" value=\"\" />\r\n                </ConnectionSetting>\r\n              </option>\r\n              <option name=\"signal\" value=\"SIGNAL_UNSPECIFIED\" />\r\n              <option name=\"timeIntervalDays\" value=\"THIRTY_DAYS\" />\r\n              <option name=\"visibilityType\" value=\"ALL\" />\r\n            </InsightsFilterSettings>\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/appInsightsSettings.xml b/.idea/appInsightsSettings.xml
+--- a/.idea/appInsightsSettings.xml	(revision c44a76a08c89cc7e33ce3763835c55ad43b9ff56)
++++ b/.idea/appInsightsSettings.xml	(date 1776608716363)
+@@ -8,10 +8,10 @@
+             <InsightsFilterSettings>
+               <option name="connection">
+                 <ConnectionSetting>
+-                  <option name="appId" value="PLACEHOLDER" />
+-                  <option name="mobileSdkAppId" value="" />
+-                  <option name="projectId" value="" />
+-                  <option name="projectNumber" value="" />
++                  <option name="appId" value="com.example.artistico_android" />
++                  <option name="mobileSdkAppId" value="1:929174545829:android:b44b19cd76d57fb772b44c" />
++                  <option name="projectId" value="artistico-f3b7d" />
++                  <option name="projectNumber" value="929174545829" />
+                 </ConnectionSetting>
+               </option>
+               <option name="signal" value="SIGNAL_UNSPECIFIED" />
+Index: build.gradle.kts
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>plugins {\r\n    alias(libs.plugins.android.application) apply false\r\n    alias(libs.plugins.kotlin.android) apply false\r\n    alias(libs.plugins.kotlin.parcelize) apply false\r\n    alias(libs.plugins.ksp) apply false\r\n    alias(libs.plugins.hilt) apply false\r\n    alias(libs.plugins.androidx.navigation.safeargs) apply false\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/build.gradle.kts b/build.gradle.kts
+--- a/build.gradle.kts	(revision c44a76a08c89cc7e33ce3763835c55ad43b9ff56)
++++ b/build.gradle.kts	(date 1776608734350)
+@@ -5,4 +5,5 @@
+     alias(libs.plugins.ksp) apply false
+     alias(libs.plugins.hilt) apply false
+     alias(libs.plugins.androidx.navigation.safeargs) apply false
++    id("com.google.gms.google-services") version "4.4.4" apply false
+ }
