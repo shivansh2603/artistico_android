@@ -33,23 +33,9 @@
         <item name="iconSize">20dp</item>
     </style>
 
-    <style name="Widget.Artistico.BottomNav" parent="Widget.Material3.BottomNavigationView">
-        <item name="backgroundTint">@color/surface_white</item>
-        <item name="itemIconTint">@color/bottom_nav_item</item>
-        <item name="itemTextColor">@color/bottom_nav_item</item>
-        <item name="itemActiveIndicatorStyle">@style/Widget.Artistico.BottomNav.Indicator</item>
-        <item name="labelVisibilityMode">labeled</item>
-        <item name="itemRippleColor">@color/brand_rose_chip</item>
-    </style>
-
-    <style name="Widget.Artistico.BottomNav.Indicator"
-        parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
-        <item name="android:color">@color/brand_rose_chip</item>
-        <item name="android:width">56dp</item>
-        <item name="android:height">32dp</item>
-        <item name="marginHorizontal">12dp</item>
-        <item name="shapeAppearance">@style/Shape.Artistico.Pill</item>
-    </style>
+    <!-- The bottom nav is now a plain LinearLayout (view_bottom_nav.xml);
+         M3 BottomNavigationView styles have been removed because the widget's
+         internal indicator rendering does not match its layout preview. -->
 
     <style name="Widget.Artistico.TextInput" parent="Widget.Material3.TextInputLayout.OutlinedBox">
         <item name="boxStrokeColor">@color/divider</item>
@@ -110,5 +96,7 @@
         <item name="backgroundTint">@color/surface_white</item>
         <item name="tint">@color/text_primary</item>
         <item name="borderWidth">0dp</item>
+        <!-- cornerSize > half-width clamps to exactly half = perfect circle on any size -->
+        <item name="shapeAppearance">@style/Shape.Artistico.Pill</item>
     </style>
 </resources>

@@ -48,7 +48,6 @@
 
         <!-- Components -->
         <item name="materialButtonStyle">@style/Widget.Artistico.Button</item>
-        <item name="bottomNavigationStyle">@style/Widget.Artistico.BottomNav</item>
         <item name="textInputStyle">@style/Widget.Artistico.TextInput</item>
     </style>
 

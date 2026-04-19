@@ -16,12 +16,12 @@ import javax.inject.Singleton
 @Singleton
 class FakeProfileRepository @Inject constructor() : ProfileRepository {
 
-    private val currentUser = MutableStateFlow(SampleUsers.prateek)
+    private val currentUser = MutableStateFlow(SampleUsers.shivansh)
 
     private val ownPosts = listOf(
         Post(
             id = "pp_1",
-            author = SampleUsers.prateek,
+            author = SampleUsers.shivansh,
             imageRes = R.drawable.placeholder_image_4,
             likeCount = 44,
             commentCount = 2,
@@ -29,7 +29,7 @@ class FakeProfileRepository @Inject constructor() : ProfileRepository {
         ),
         Post(
             id = "pp_2",
-            author = SampleUsers.prateek,
+            author = SampleUsers.shivansh,
             imageRes = R.drawable.placeholder_avatar_artistica,
             likeCount = 22,
             commentCount = 1,
@@ -37,7 +37,7 @@ class FakeProfileRepository @Inject constructor() : ProfileRepository {
         ),
         Post(
             id = "pp_3",
-            author = SampleUsers.prateek,
+            author = SampleUsers.shivansh,
             imageRes = R.drawable.placeholder_image_5,
             likeCount = 17,
             createdAt = Instant.now().minus(2, ChronoUnit.DAYS)

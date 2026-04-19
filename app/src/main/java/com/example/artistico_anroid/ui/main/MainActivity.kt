@@ -2,12 +2,14 @@ package com.example.artistico_anroid.ui.main
 
 import android.os.Bundle
 import android.view.View
+import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.WindowCompat
 import androidx.core.view.isVisible
+import androidx.navigation.NavController
+import androidx.navigation.NavOptions
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.ui.setupWithNavController
 import com.example.artistico_anroid.R
 import com.example.artistico_anroid.databinding.ActivityMainBinding
 import com.google.android.material.snackbar.Snackbar
@@ -18,12 +20,21 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
 
-    private val topLevelDestinations = setOf(
-        R.id.nav_explore,
-        R.id.nav_connect,
-        R.id.nav_challenges,
-        R.id.nav_profile
-    )
+    // destinationId -> the item's root LinearLayout in the custom bottom nav.
+    // Kept as a lazy property so we can iterate in one place for both
+    // click-wiring and selection-state syncing.
+    private val navItems: List<Pair<Int, LinearLayout>> by lazy {
+        listOf(
+            R.id.nav_explore    to binding.bottomNav.navItemExplore,
+            R.id.nav_connect    to binding.bottomNav.navItemConnect,
+            R.id.nav_challenges to binding.bottomNav.navItemChallenges,
+            R.id.nav_profile    to binding.bottomNav.navItemProfile,
+        )
+    }
+
+    private val topLevelDestinations: Set<Int> by lazy {
+        navItems.map { it.first }.toSet()
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,20 +46,51 @@ class MainActivity : AppCompatActivity() {
             .findFragmentById(R.id.nav_host_container) as NavHostFragment
         val navController = navHost.navController
 
-        binding.bottomNav.setupWithNavController(navController)
-
-        // Reselect → scroll to top (handled by fragments via SharedViewModel in a future sprint);
-        // for now, just swallow the reselection so it doesn't re-add to back stack.
-        binding.bottomNav.setOnItemReselectedListener { /* no-op */ }
+        wireBottomNav(navController)
 
         navController.addOnDestinationChangedListener { _, destination, _ ->
             val isTopLevel = destination.id in topLevelDestinations
             binding.bottomBarCard.isVisible = isTopLevel
             binding.fabSearch.visibility = if (isTopLevel) View.VISIBLE else View.GONE
+            // Sync the pink pill to whichever destination we're on.
+            syncSelection(destination.id)
         }
 
         binding.fabSearch.setOnClickListener {
             Snackbar.make(binding.root, "Global search — coming soon", Snackbar.LENGTH_SHORT).show()
+        }
+    }
+
+    /**
+     * Wire each item's click to navigate to the matching top-level destination.
+     * We use a custom NavOptions with singleTop + popUpTo(startDestination) to
+     * match the behaviour of NavigationUI.setupWithNavController(): clicking
+     * a tab that you're already on does nothing, and switching tabs clears the
+     * back stack up to the graph's start destination.
+     */
+    private fun wireBottomNav(navController: NavController) {
+        val navOptions = NavOptions.Builder()
+            .setLaunchSingleTop(true)
+            .setRestoreState(true)
+            .setPopUpTo(navController.graph.startDestinationId, inclusive = false, saveState = true)
+            .build()
+
+        navItems.forEach { (destinationId, itemView) ->
+            itemView.setOnClickListener {
+                if (navController.currentDestination?.id != destinationId) {
+                    navController.navigate(destinationId, null, navOptions)
+                }
+            }
+        }
+    }
+
+    /**
+     * Flip isSelected on each item so the selector drawable (pink pill),
+     * icon tint, and label colour all update together via duplicateParentState.
+     */
+    private fun syncSelection(destinationId: Int) {
+        navItems.forEach { (destId, itemView) ->
+            itemView.isSelected = (destId == destinationId)
         }
     }
 

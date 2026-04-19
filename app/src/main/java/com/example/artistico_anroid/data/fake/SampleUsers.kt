@@ -30,6 +30,16 @@ internal object SampleUsers {
         followingCount = 6,
         postsCount = 3
     )
+    val shivansh = User(
+        id = "u_shivansh",
+        displayName = "Shivansh Prasad",
+        role = UserRole.DEV,
+        bio = "Android Developer",
+        avatarRes = R.drawable.placeholder_avatar,
+        followersCount = 3,
+        followingCount = 6,
+        postsCount = 3
+    )
 
     val meera = User(
         id = "u_meera",

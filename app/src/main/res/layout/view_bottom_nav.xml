@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Custom bottom navigation.  Plain LinearLayout + 4 clickable item columns.
+    Replaces com.google.android.material.bottomnavigation.BottomNavigationView,
+    which has a library-level indicator-positioning bug that manifests on real
+    devices (works in preview, broken on device).
+
+    Selection model: the root LinearLayout of each item has
+    android:isSelected toggled from MainActivity.  The FrameLayout wrapper,
+    ImageView and TextView all use duplicateParentState so the selector
+    drawable (pink pill), icon tint, and text colour all update in sync.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:paddingVertical="8dp">
+
+    <!-- ============== Explore ============== -->
+    <LinearLayout
+        android:id="@+id/nav_item_explore"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="?attr/selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_bottom_nav_indicator"
+            android:duplicateParentState="true"
+            android:paddingHorizontal="18dp"
+            android:paddingVertical="6dp">
+
+            <ImageView
+                android:id="@+id/icon_explore"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:contentDescription="@null"
+                android:duplicateParentState="true"
+                app:srcCompat="@drawable/ic_explore"
+                app:tint="@color/bottom_nav_item" />
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/label_explore"
+            style="@style/TextAppearance.Artistico.BottomNavLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:duplicateParentState="true"
+            android:textColor="@color/bottom_nav_item"
+            android:text="@string/nav_explore" />
+    </LinearLayout>
+
+    <!-- ============== Connect ============== -->
+    <LinearLayout
+        android:id="@+id/nav_item_connect"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="?attr/selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_bottom_nav_indicator"
+            android:duplicateParentState="true"
+            android:paddingHorizontal="18dp"
+            android:paddingVertical="6dp">
+
+            <ImageView
+                android:id="@+id/icon_connect"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:contentDescription="@null"
+                android:duplicateParentState="true"
+                app:srcCompat="@drawable/ic_connect"
+                app:tint="@color/bottom_nav_item" />
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/label_connect"
+            style="@style/TextAppearance.Artistico.BottomNavLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:duplicateParentState="true"
+            android:textColor="@color/bottom_nav_item"
+            android:text="@string/nav_connect" />
+    </LinearLayout>
+
+    <!-- ============== Challenges ============== -->
+    <LinearLayout
+        android:id="@+id/nav_item_challenges"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="?attr/selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_bottom_nav_indicator"
+            android:duplicateParentState="true"
+            android:paddingHorizontal="18dp"
+            android:paddingVertical="6dp">
+
+            <ImageView
+                android:id="@+id/icon_challenges"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:contentDescription="@null"
+                android:duplicateParentState="true"
+                app:srcCompat="@drawable/ic_challenges"
+                app:tint="@color/bottom_nav_item" />
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/label_challenges"
+            style="@style/TextAppearance.Artistico.BottomNavLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:duplicateParentState="true"
+            android:textColor="@color/bottom_nav_item"
+            android:text="@string/nav_challenges" />
+    </LinearLayout>
+
+    <!-- ============== Profile ============== -->
+    <LinearLayout
+        android:id="@+id/nav_item_profile"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="?attr/selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_bottom_nav_indicator"
+            android:duplicateParentState="true"
+            android:paddingHorizontal="18dp"
+            android:paddingVertical="6dp">
+
+            <ImageView
+                android:id="@+id/icon_profile"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:contentDescription="@null"
+                android:duplicateParentState="true"
+                app:srcCompat="@drawable/ic_profile"
+                app:tint="@color/bottom_nav_item" />
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/label_profile"
+            style="@style/TextAppearance.Artistico.BottomNavLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:duplicateParentState="true"
+            android:textColor="@color/bottom_nav_item"
+            android:text="@string/nav_profile" />
+    </LinearLayout>
+
+</LinearLayout>

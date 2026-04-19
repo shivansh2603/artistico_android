@@ -18,43 +18,42 @@
         app:defaultNavHost="true"
         app:navGraph="@navigation/nav_root" />
 
-    <!-- Floating pill bottom navigation -->
+    <!-- Floating pill containing our CUSTOM bottom nav.
+         wrap_content auto-sizes to the content; no dead space possible. -->
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/bottom_bar_card"
-        style="@style/Widget.Material3.CardView.Filled"
-        android:layout_width="0dp"
-        android:layout_height="@dimen/bottom_bar_height"
-        android:layout_gravity="bottom|start"
-        android:layout_marginStart="@dimen/bottom_bar_margin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginStart="12dp"
         android:layout_marginEnd="88dp"
         android:layout_marginBottom="@dimen/bottom_bar_margin"
+        android:backgroundTint="@color/surface_white"
         app:cardBackgroundColor="@color/surface_white"
         app:cardCornerRadius="36dp"
-        app:cardElevation="8dp"
-        app:layout_anchor="@id/nav_host_container"
-        app:layout_anchorGravity="bottom|start">
+        app:cardElevation="6dp"
+        app:strokeWidth="0dp">
 
-        <com.google.android.material.bottomnavigation.BottomNavigationView
+        <include
             android:id="@+id/bottom_nav"
-            style="@style/Widget.Artistico.BottomNav"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@android:color/transparent"
-            app:elevation="0dp"
-            app:menu="@menu/menu_bottom_nav" />
+            layout="@layout/view_bottom_nav" />
     </com.google.android.material.card.MaterialCardView>
 
-    <!-- Detached search FAB -->
+    <!-- Circular search button.
+         Explicit 64×64dp: cornerSize(32dp) == width/2 == PERFECT circle.
+         Same marginBottom as the pill = bottom edges flush. -->
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab_search"
         style="@style/Widget.Artistico.Fab.Search"
-        android:layout_width="56dp"
-        android:layout_height="56dp"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
         android:layout_gravity="bottom|end"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginBottom="@dimen/bottom_bar_margin"
         android:contentDescription="@string/nav_search"
-        app:elevation="8dp"
+        app:elevation="6dp"
+        app:fabCustomSize="64dp"
+        app:maxImageSize="24dp"
         app:srcCompat="@drawable/ic_search"
         app:tint="@color/text_primary" />
 

@@ -112,4 +112,13 @@
     <style name="Text.OnDark.Body" parent="TextAppearance.Artistico.BodyMedium">
         <item name="android:textColor">@color/white</item>
     </style>
+
+    <!-- Bottom-nav label: equal size for active & inactive removes M3 zoom,
+         and 11sp ensures "Challenges" fits in the ~69dp per-item column -->
+    <style name="TextAppearance.Artistico.BottomNavLabel" parent="TextAppearance.Material3.LabelMedium">
+        <item name="android:textSize">11sp</item>
+        <item name="android:letterSpacing">0</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="fontFamily">sans-serif-medium</item>
+    </style>
 </resources>

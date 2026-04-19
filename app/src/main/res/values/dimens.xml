@@ -30,8 +30,10 @@
 
     <dimen name="touch_target">48dp</dimen>
 
+    <!-- 64dp = paddingTop(8) + indicator(34) + gap(6) + label(~14sp) + paddingBottom(8)
+         Forces the nav view smaller than M3's 80dp wrap_content minimum → no dead space -->
     <dimen name="bottom_bar_height">72dp</dimen>
-    <dimen name="bottom_bar_margin">12dp</dimen>
+    <dimen name="bottom_bar_margin">16dp</dimen>
 
     <dimen name="card_elevation">2dp</dimen>
     <dimen name="card_elevation_raised">6dp</dimen>
