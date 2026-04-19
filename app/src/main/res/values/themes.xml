@@ -16,6 +16,11 @@
 
         <item name="android:colorBackground">@color/brand_pink_bg</item>
         <item name="colorOnBackground">@color/text_primary</item>
+        <!-- Must be set explicitly: the Material 3 parent does not derive
+             windowBackground from colorBackground, so without this line the
+             FragmentManager's brief cross-fade during tab switches lets the
+             default (black/white) window colour flash through. -->
+        <item name="android:windowBackground">@color/brand_pink_bg</item>
 
         <item name="colorSurface">@color/brand_pink_bg</item>
         <item name="colorOnSurface">@color/text_primary</item>
