@@ -8,11 +8,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.artistico_anroid"
+    namespace = "com.example.artistico_android"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.example.artistico_anroid"
+        applicationId = "com.example.artistico_android"
         minSdk = 26
         targetSdk = 35
         versionCode = 1
