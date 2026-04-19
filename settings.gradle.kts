@@ -22,5 +22,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "artistico_anroid"
+rootProject.name = "artistico_android"
 include(":app")

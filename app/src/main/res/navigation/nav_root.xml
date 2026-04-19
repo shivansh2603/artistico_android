@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/nav_explore"
-        android:name="com.example.artistico_anroid.ui.explore.ExploreFragment"
+        android:name="com.example.artistico_android.ui.explore.ExploreFragment"
         android:label="Explore"
         tools:layout="@layout/fragment_explore"
         xmlns:tools="http://schemas.android.com/tools">
@@ -21,28 +21,28 @@
 
     <fragment
         android:id="@+id/nav_connect"
-        android:name="com.example.artistico_anroid.ui.connect.ConnectFragment"
+        android:name="com.example.artistico_android.ui.connect.ConnectFragment"
         android:label="Connect"
         tools:layout="@layout/fragment_connect"
         xmlns:tools="http://schemas.android.com/tools" />
 
     <fragment
         android:id="@+id/nav_challenges"
-        android:name="com.example.artistico_anroid.ui.challenges.ChallengesFragment"
+        android:name="com.example.artistico_android.ui.challenges.ChallengesFragment"
         android:label="Challenges"
         tools:layout="@layout/fragment_challenges"
         xmlns:tools="http://schemas.android.com/tools" />
 
     <fragment
         android:id="@+id/nav_profile"
-        android:name="com.example.artistico_anroid.ui.profile.ProfileFragment"
+        android:name="com.example.artistico_android.ui.profile.ProfileFragment"
         android:label="Profile"
         tools:layout="@layout/fragment_profile"
         xmlns:tools="http://schemas.android.com/tools" />
 
     <fragment
         android:id="@+id/nav_post_details"
-        android:name="com.example.artistico_anroid.ui.post.PostDetailsFragment"
+        android:name="com.example.artistico_android.ui.post.PostDetailsFragment"
         android:label="Post Details"
         tools:layout="@layout/fragment_post_details"
         xmlns:tools="http://schemas.android.com/tools">
