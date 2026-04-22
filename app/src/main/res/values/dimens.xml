@@ -11,6 +11,7 @@
     <dimen name="space_3xl">40dp</dimen>
 
     <!-- Radius -->
+    <dimen name="radius_field">16dp</dimen>
     <dimen name="radius_sm">8dp</dimen>
     <dimen name="radius_md">16dp</dimen>
     <dimen name="radius_lg">24dp</dimen>

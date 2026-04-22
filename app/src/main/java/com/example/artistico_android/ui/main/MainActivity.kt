@@ -12,13 +12,20 @@ import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import com.example.artistico_android.R
 import com.example.artistico_android.databinding.ActivityMainBinding
+import com.example.artistico_android.domain.repo.AuthRepository
+import com.example.artistico_android.domain.repo.OnboardingRepository
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.runBlocking
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
+
+    @Inject lateinit var authRepository: AuthRepository
+    @Inject lateinit var onboardingRepository: OnboardingRepository
 
     // destinationId -> the item's root LinearLayout in the custom bottom nav.
     // Kept as a lazy property so we can iterate in one place for both
@@ -46,6 +53,23 @@ class MainActivity : AppCompatActivity() {
             .findFragmentById(R.id.nav_host_container) as NavHostFragment
         val navController = navHost.navController
 
+        // Pick the start destination based on two persisted flags:
+        //   - active session → straight to Explore
+        //   - onboarding seen before → Login
+        //   - neither → the onboarding carousel
+        // Both reads are one-off DataStore lookups (microseconds, not network), so
+        // runBlocking in onCreate is acceptable and avoids a first-frame flash.
+        val startDestination = runBlocking {
+            when {
+                authRepository.isLoggedInNow() -> R.id.nav_explore
+                onboardingRepository.hasCompletedOnboardingNow() -> R.id.nav_login
+                else -> R.id.nav_onboarding
+            }
+        }
+        val graph = navController.navInflater.inflate(R.navigation.nav_root)
+        graph.setStartDestination(startDestination)
+        navController.graph = graph
+
         wireBottomNav(navController)
 
         navController.addOnDestinationChangedListener { _, destination, _ ->
@@ -63,16 +87,15 @@ class MainActivity : AppCompatActivity() {
 
     /**
      * Wire each item's click to navigate to the matching top-level destination.
-     * We use a custom NavOptions with singleTop + popUpTo(startDestination) to
-     * match the behaviour of NavigationUI.setupWithNavController(): clicking
-     * a tab that you're already on does nothing, and switching tabs clears the
-     * back stack up to the graph's start destination.
+     * popUpTo is pinned to nav_explore (not graph.startDestinationId) because the
+     * graph's start destination may be nav_login when the user is signed out —
+     * we don't want tab switches to route the back stack through the login screen.
      */
     private fun wireBottomNav(navController: NavController) {
         val navOptions = NavOptions.Builder()
             .setLaunchSingleTop(true)
             .setRestoreState(true)
-            .setPopUpTo(navController.graph.startDestinationId, inclusive = false, saveState = true)
+            .setPopUpTo(R.id.nav_explore, inclusive = false, saveState = true)
             .build()
 
         navItems.forEach { (destinationId, itemView) ->

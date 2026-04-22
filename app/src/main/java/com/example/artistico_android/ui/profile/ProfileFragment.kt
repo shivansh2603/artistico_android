@@ -8,6 +8,8 @@ import android.widget.PopupMenu
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.NavOptions
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.artistico_android.R
 import com.example.artistico_android.core.ui.collectWhenStarted
@@ -66,8 +68,16 @@ class ProfileFragment : Fragment() {
             PopupMenu(requireContext(), anchor).apply {
                 menuInflater.inflate(R.menu.menu_profile_overflow, menu)
                 setOnMenuItemClickListener { item ->
-                    Snackbar.make(binding.root, item.title ?: "", Snackbar.LENGTH_SHORT).show()
-                    true
+                    when (item.itemId) {
+                        R.id.action_logout -> {
+                            viewModel.logout()
+                            true
+                        }
+                        else -> {
+                            Snackbar.make(binding.root, item.title ?: "", Snackbar.LENGTH_SHORT).show()
+                            true
+                        }
+                    }
                 }
             }.show()
         }
@@ -82,7 +92,24 @@ class ProfileFragment : Fragment() {
             binding.recyclerGrid.isVisible = state.posts.isNotEmpty()
             binding.txtTabEmpty.isVisible = !state.isLoading && state.posts.isEmpty()
             syncSelectedTab(state.activeTab)
+
+            if (state.loggedOut) {
+                navigateToLogin()
+                viewModel.onLogoutNavigated()
+            }
         }
+    }
+
+    /**
+     * Clears the entire back stack up to (and including) explore so the user can't
+     * press Back to sneak past the login screen into the app.
+     */
+    private fun navigateToLogin() {
+        val options = NavOptions.Builder()
+            .setPopUpTo(R.id.nav_explore, inclusive = true)
+            .setLaunchSingleTop(true)
+            .build()
+        findNavController().navigate(R.id.nav_login, null, options)
     }
 
     private fun setupTabs() {

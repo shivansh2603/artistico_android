@@ -10,14 +10,15 @@
     android:fitsSystemWindows="true"
     tools:context=".ui.main.MainActivity">
 
+    <!-- navGraph is set programmatically in MainActivity so the session-aware
+         start destination (login vs explore) is picked before the first frame. -->
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/nav_host_container"
         android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/brand_pink_bg"
-        app:defaultNavHost="true"
-        app:navGraph="@navigation/nav_root" />
+        app:defaultNavHost="true" />
 
     <!-- Floating pill containing our CUSTOM bottom nav.
          wrap_content auto-sizes to the content; no dead space possible. -->

@@ -30,6 +30,9 @@
         <item name="colorError">@color/error</item>
         <item name="colorOnError">@color/white</item>
 
+        <!-- Kill the default yellow flash on autofilled fields (API 28+). -->
+        <item name="android:autofilledHighlight" tools:targetApi="p">@drawable/autofill_highlight_transparent</item>
+
         <!-- System bars -->
         <item name="android:statusBarColor">@color/brand_pink_bg</item>
         <item name="android:windowLightStatusBar">true</item>
