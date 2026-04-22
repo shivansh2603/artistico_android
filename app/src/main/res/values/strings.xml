@@ -63,6 +63,29 @@
     <string name="tab_trophies">Trophies</string>
     <string name="cd_new_post">Create new post</string>
 
+    <!-- Onboarding -->
+    <string name="onboarding_skip">Skip</string>
+    <string name="onboarding_next">Next</string>
+    <string name="onboarding_get_started">Get Started</string>
+    <string name="cd_onboarding_illustration">Feature illustration</string>
+    <string name="cd_onboarding_previous">Previous page</string>
+    <string name="cd_onboarding_next">Next page</string>
+
+    <string name="onboarding_1_title">Global Artist Network</string>
+    <string name="onboarding_1_desc">Forge meaningful connections with talented artists across continents, breaking down creative barriers.</string>
+
+    <string name="onboarding_2_title">Inspire &amp; Be Inspired</string>
+    <string name="onboarding_2_desc">Dive into a curated gallery of exceptional artworks that push the boundaries of creative expression.</string>
+
+    <string name="onboarding_3_title">Collaborative Ecosystem</string>
+    <string name="onboarding_3_desc">Join a dynamic, supportive community of passionate artists dedicated to mutual growth and innovation.</string>
+
+    <string name="onboarding_4_title">Creative Catalyst</string>
+    <string name="onboarding_4_desc">Engage in thought-provoking challenges designed to unlock your creative potential and spark innovation.</string>
+
+    <string name="onboarding_5_title">Elevate Your Presence</string>
+    <string name="onboarding_5_desc">Craft a sophisticated, professional portfolio that authentically represents your unique artistic journey.</string>
+
     <!-- Auth: Login -->
     <string name="login_title">Hey, Artist!</string>
     <string name="login_subtitle">Created Something? Show Us!</string>

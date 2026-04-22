@@ -7,9 +7,11 @@ import com.example.artistico_android.data.fake.FakeChallengeRepository
 import com.example.artistico_android.data.fake.FakeConnectRepository
 import com.example.artistico_android.data.fake.FakePostRepository
 import com.example.artistico_android.data.fake.FakeProfileRepository
+import com.example.artistico_android.data.preferences.OnboardingPreferencesRepository
 import com.example.artistico_android.domain.repo.AuthRepository
 import com.example.artistico_android.domain.repo.ChallengeRepository
 import com.example.artistico_android.domain.repo.ConnectRepository
+import com.example.artistico_android.domain.repo.OnboardingRepository
 import com.example.artistico_android.domain.repo.PostRepository
 import com.example.artistico_android.domain.repo.ProfileRepository
 import dagger.Binds
@@ -42,6 +44,10 @@ abstract class RepositoryBindings {
     @Binds
     @Singleton
     abstract fun bindAuthRepository(impl: FakeAuthRepository): AuthRepository
+
+    @Binds
+    @Singleton
+    abstract fun bindOnboardingRepository(impl: OnboardingPreferencesRepository): OnboardingRepository
 }
 
 @Module

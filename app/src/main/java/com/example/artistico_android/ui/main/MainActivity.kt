@@ -13,6 +13,7 @@ import androidx.navigation.fragment.NavHostFragment
 import com.example.artistico_android.R
 import com.example.artistico_android.databinding.ActivityMainBinding
 import com.example.artistico_android.domain.repo.AuthRepository
+import com.example.artistico_android.domain.repo.OnboardingRepository
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.runBlocking
@@ -24,6 +25,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
 
     @Inject lateinit var authRepository: AuthRepository
+    @Inject lateinit var onboardingRepository: OnboardingRepository
 
     // destinationId -> the item's root LinearLayout in the custom bottom nav.
     // Kept as a lazy property so we can iterate in one place for both
@@ -51,13 +53,21 @@ class MainActivity : AppCompatActivity() {
             .findFragmentById(R.id.nav_host_container) as NavHostFragment
         val navController = navHost.navController
 
-        // The graph ships with nav_login as its start destination. If the user has
-        // a persisted session, we swap the start destination to nav_explore BEFORE
-        // the controller inflates — avoids a login-screen flash on warm launches.
-        // runBlocking here is a one-off DataStore read (microseconds), not network.
-        val loggedIn = runBlocking { authRepository.isLoggedInNow() }
+        // Pick the start destination based on two persisted flags:
+        //   - active session → straight to Explore
+        //   - onboarding seen before → Login
+        //   - neither → the onboarding carousel
+        // Both reads are one-off DataStore lookups (microseconds, not network), so
+        // runBlocking in onCreate is acceptable and avoids a first-frame flash.
+        val startDestination = runBlocking {
+            when {
+                authRepository.isLoggedInNow() -> R.id.nav_explore
+                onboardingRepository.hasCompletedOnboardingNow() -> R.id.nav_login
+                else -> R.id.nav_onboarding
+            }
+        }
         val graph = navController.navInflater.inflate(R.navigation.nav_root)
-        graph.setStartDestination(if (loggedIn) R.id.nav_explore else R.id.nav_login)
+        graph.setStartDestination(startDestination)
         navController.graph = graph
 
         wireBottomNav(navController)
