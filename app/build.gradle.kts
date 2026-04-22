@@ -93,6 +93,10 @@ dependencies {
     // DataStore (for future session)
     implementation(libs.androidx.datastore.preferences)
 
+    // Credential Manager — save passwords to Google Password Manager on login.
+    implementation(libs.androidx.credentials)
+    implementation(libs.androidx.credentials.play.services.auth)
+
     // Coroutines
     implementation(libs.kotlinx.coroutines.android)
 

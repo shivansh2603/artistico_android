@@ -34,7 +34,7 @@ internal object SampleUsers {
         id = "u_shivansh",
         displayName = "Shivansh Prasad",
         role = UserRole.DEV,
-        bio = "Android Developer",
+        bio = "Founding Android Developer",
         avatarRes = R.drawable.placeholder_avatar,
         followersCount = 3,
         followingCount = 6,

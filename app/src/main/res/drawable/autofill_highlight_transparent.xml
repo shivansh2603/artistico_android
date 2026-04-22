@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Replaces the system's default yellow autofill highlight with a transparent
+    overlay, so autofilled fields keep their normal box background instead of
+    flashing yellow. Applied via android:autofilledHighlight in the app theme.
+-->
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="@android:color/transparent" />
+</shape>
